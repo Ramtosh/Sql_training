@@ -1,0 +1,13 @@
+create table rkg(
+id int,
+Name varchar(20),
+Address varchar(20),
+Salary int,
+)
+select*from rkg
+insert rkg values(5,'kajal','Noida',23000)
+
+alter table rkg add pincode int
+update rkg set pincode=291001 where id=1
+update rkg set pincode=291003 where id=2
+update rkg set pincode=291007 where id=5
