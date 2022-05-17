@@ -1,0 +1,10 @@
+create table rkg(
+id int,
+Name varchar(20),
+Address varchar(20),
+Salary int,
+)
+select*from rkg
+insert rkg values(5,'kajal','Noida',23000)
+
+update rkg set salary = 17000 where id =2
