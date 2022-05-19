@@ -1,0 +1,20 @@
+create database Ramtosh1
+use Ramtosh1
+create table students(
+std_id int,
+name varchar(30),
+marks int,
+);
+
+select *from students
+
+insert into students Values (1,'amit',50)
+insert into students Values (2,'ram',75)
+insert into students Values (3,'tom',80)
+ 
+ update students set std_id=3, marks=70 where name='tom'
+
+ Delete from students where std_id =3
+
+ select std_id from students
+
