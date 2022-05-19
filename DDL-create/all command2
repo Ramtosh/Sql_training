@@ -1,0 +1,32 @@
+create database Ramtosh02
+use Ramtosh02
+
+create table students(
+std_id int,
+name varchar(30),
+marks int,
+);
+
+select *from students
+
+insert into students Values (1,'amit',50)
+insert into students Values (2,'ram',75)
+insert into students Values (3,'tom',80)
+ 
+ update students set std_id=3, marks=70 where name='tom'
+
+ Delete from students where std_id =3
+
+ select std_id from students
+ //drop table students
+
+ alter table students add salary int
+ update students set salary = 5000 where name='amit'
+
+// sp_rename 'students','studentsname'
+
+truncate table students
+
+
+
+
