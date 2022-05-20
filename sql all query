@@ -1,0 +1,127 @@
+1. -- To create a database.
+create database DB_NS
+
+2. --To create a table
+create table tb_emp(
+id int,
+name nvarchar(9),
+email nvarchar(14),
+salary money);
+
+3. -- To show table from database
+select * from tb_emp
+
+4. -- to insert values/data into table 
+insert into tb_emp values(333,'NS Ali','nsali@gmail.com',10000000);
+
+5.-- To insert values/data into table 
+insert into tb_emp values('','Naushad Ali','mnali@gmail.com',10000);
+
+6. --To drop table from database
+alter table tb_emp drop column ename
+
+7. --To modify column into table
+alter table tb_emp alter column email nvarchar(97);
+
+8.--To update ttable
+update tb_student set email='noshada@chetu.com' where email='noshada2chetu.com';
+
+9. --Inner join (matching values in both tables)
+select  tb_emp.id,tb_student.name
+from tb_emp
+inner join tb_student on tb_emp.id=tb_student.Sid;
+
+--left outer join (returns all records from the left table)
+select tb_emp.id,tb_student.name
+from tb_emp
+left join tb_student on tb_emp.id=tb_student.Sid;
+
+--RIGHT JOIN keyword (returns all records from the right table)
+select tb_emp.id,tb_student.name
+from tb_emp
+right join tb_student on tb_emp.id=tb_student.Sid;
+
+ --The FULL OUTER JOIN keyword (returns all records)
+select tb_emp.id,tb_student.name
+from tb_emp
+full outer join tb_student on tb_emp.id=tb_student.Sid;
+
+--The UNION operator is used to combine the result-set of two or
+--more SELECT statements.
+select id from tb_emp
+union 
+select Sid from tb_student;
+
+--The GROUP BY statement groups rows that have the same values into summary rows, like "find the number of customers in each country".
+--The GROUP BY statement is often used with aggregate functions (COUNT(), MAX(), MIN(), SUM(), AVG()) to group the result-set by one or more columns.
+select Sid from tb_student where email= 'noshada@chetu.com'
+group by Sid;
+
+--The HAVING clause(lists the number of employee in each )
+select count(id),email from tb_emp 
+group by email having COUNT(id)>5;
+
+
+ 
+ --The SQL AND, OR and NOT Operators(The WHERE clause can be combined with AND, OR, and NOT operators)
+select name,email from tb_emp where email='mn@gmail.com' and salary=10000;
+select name,email from tb_emp where email='mn@gmail.com' or salary=10000;
+select name,email from tb_emp where not email='mn@gmail.com' and salary=10000;
+ 
+
+ --Torollback
+ step:1
+ begin transaction
+  delete from tb_tcl where id=10;
+  Step:2
+  begin transaction 
+   rollback; 
+
+
+        --- Stored Procedure ---
+ --Stored procedure without parameter
+ ----Example:1
+    create proc GetEmployee
+	AS 
+	select*from tb_emp
+	 --To execute it
+	           exec GetEmployee
+
+   -----Example:2
+      create proc GetEmployee1
+	  AS
+	  BEGIN
+	  select*from tb_emp
+	  END
+	  --To execute it
+	      exec GetEmployee1
+
+
+--Stored procedure with (IN) parameter
+   create proc InsertIntoTable(@id int,@name varchar(97),@email varchar(97),@salary money)
+   AS
+   BEGIN
+   INSERT INTO tb_emp VALUES(@id,@name,@email,@salary)
+   END
+    --To execute it
+  exec InsertIntoTable 109,'NS Ali','Noshada@chetu.com',10000000
+   -- To show it 
+     select * from tb_emp
+
+
+	--Stored procedure with (out) parameter
+create proc GetPfAndPt(@id int,@PF int out,@PT int out)
+as
+begin
+declare @test money
+select @test=salary from tb_emp where id=@id
+set @pf=@test*0.1
+set @pt=@test*0.2
+end
+--To execute it
+  declare @bpf int,@bpt int
+  exec GetPfAndPt 999,@bpf out,@bpt out
+  print @bpf
+  print @bpt
+
+
