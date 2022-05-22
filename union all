@@ -1,0 +1,13 @@
+create table Baba(
+id int,
+Name varchar(30),
+age int,
+);
+
+select*from amit
+union all
+select*from Baba
+
+insert into Baba values(1,'raj',18)
+insert into Baba values (2,'mamu',23)
+insert into Baba values(3,'ke',23)
