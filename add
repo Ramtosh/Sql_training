@@ -1,0 +1,18 @@
+create table OP(
+id int,
+name varchar(70),
+salary int,
+);
+ select*from OP
+insert into OP values(1,'amit',44000)
+insert into OP values (2,'shubham',34000)
+insert into OP values(3,'shivam',50000)
+
+alter table OP add addrees varchar(70)
+alter table OP add gmail varchar(50)
+update op set addrees='noida'where name='amit'
+update op set gmail='amit777@gmail.com'where name='amit'
+alter table OP add nicname varchar(50)
+alter table OP add company varchar(50)
+alter table OP add day varchar(50)
+alter table Op add indian varchar(60)
