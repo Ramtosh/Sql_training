@@ -1,0 +1,17 @@
+create table emp(
+id int,
+name varchar(50),
+salary int,
+);
+select*from emp
+insert into emp values(70,'tom',20000)
+insert into emp values(67,'tomy',24000)
+insert into emp values(87,'july',25000)
+insert into emp values(69,'roly',26000)
+
+update emp set salary=27000 where name='tomy'
+update emp set id=6 where name ='tomy'
+update emp set name='babu' where id=6
+update emp set salary=270000 where id=87
+update emp set id=15 where name='july'
+update emp set id=17 where salary=26000
