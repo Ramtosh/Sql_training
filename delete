@@ -1,0 +1,18 @@
+create table tom(
+id int,
+name varchar(50),
+salary int,
+);
+
+select*from tom
+insert into tom values (6,'tomy',33000)
+insert into tom values (7,'raju',23000)
+insert into tom values (8,'rija',47000)
+insert into tom values (9,'jan',28000)
+
+delete from tom where id=2
+delete from tom where name='jiya'
+delete from tom where salary=47000
+delete from tom where id =9
+delete from tom where name='mome'
+delete from tom where name ='raju'
